@@ -6,7 +6,7 @@ export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
 
   function addGoalHandler() {
-    setCourseGoals((currentCourseGoals) => [...currentCourseGoals, { key: Math.random().toString(), value: enteredGoalText }]);
+    setCourseGoals((currentCourseGoals) => [...currentCourseGoals, { id: Math.random().toString(), value: enteredGoalText }]);
   }
 
   function goalInputHandler(enteredText) {
@@ -36,6 +36,9 @@ export default function App() {
                 <Text style={styles.goalText}>{itemData.item.value}</Text>
               </View>
             );
+          }}
+          keyExtractor={(item, index) => {
+            return item.id;
           }}
         ></FlatList>
       </View>
