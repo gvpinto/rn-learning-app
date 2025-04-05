@@ -6,8 +6,7 @@ export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
 
   function addGoalHandler() {
-    setCourseGoals((currentCourseGoals) => [...currentCourseGoals, enteredGoalText]);
-    setEnteredGoalText('');
+    setCourseGoals((currentCourseGoals) => [...currentCourseGoals, { key: Math.random().toString(), value: enteredGoalText }]);
   }
 
   function goalInputHandler(enteredText) {
@@ -34,7 +33,7 @@ export default function App() {
           renderItem={(itemData) => {
             return (
               <View style={styles.goalItem}>
-                <Text style={styles.goalText}>{itemData.item}</Text>
+                <Text style={styles.goalText}>{itemData.item.value}</Text>
               </View>
             );
           }}
